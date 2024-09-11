@@ -12,7 +12,6 @@
 **/.vagrant/
 **/vagrantfile
 
-#*.env
 *.log
 *.vs*
 ._*
@@ -37,7 +36,6 @@ public_html/storage
 public_html/hot
 
 storage/*.key
-.env
 Homestead.yaml
 Homestead.json
 /.vagrant
@@ -73,3 +71,5 @@ Homestead.json
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/project/.vite
