@@ -1,4 +1,4 @@
-name: Laravel
+name: Laravel, Vite, Vue, Tailwind
 
 on:
   push:
@@ -20,20 +20,24 @@ jobs:
         run: php -r "file_exists('project/.env') || copy('project/.env.example', 'project/.env');"
       - name: Clear Composer Cache
         run: composer clear-cache
-      - name: Install Dependencies
-        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist -d project
-      - name: Install Dependencies
-        run: npm install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist -d project
+      - name: Install Dependencies with composer
+        working-directory: project
+        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      - name: Install Dependencies with npm
+        working-directory: project
+        run: npm install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
       - name: Generate key if not exists
         run: |
           if ! grep -q "APP_KEY=" project/.env; then
             php -r "echo 'APP_KEY=' . bin2hex(random_bytes(32)) . PHP_EOL;" >> project/.env
           fi
       - name: Directory Permissions
-        run: chmod -R 777 project/storage project/bootstrap/cache
+        working-directory: project
+        run: chmod -R 777 storage bootstrap/cache
       - name: Create Database
         run: |
           mkdir -p database
           touch database/database.sql
       - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
+        working-directory: project
         run: php artisan test --env=testing
