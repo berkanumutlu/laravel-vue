@@ -25,9 +25,18 @@ Laravel, Vue, Vite, Tailwind
 
 - [predis/predis](https://github.com/predis/predis) (v2.2.2)
 
+- [tailwindlabs/headlessui](https://github.com/tailwindlabs/headlessui) (v1.7.23)
+- [tailwindlabs/heroicons](https://github.com/tailwindlabs/heroicons) (v2.1.5)
+- [vuejs/router](https://github.com/vuejs/router) (v4.4.4)
+
 #### dev
 
 - [barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar) (v3.13.5)
+
+- [vitejs/plugin-vue](https://github.com/vitejs/vite-plugin-vue) (v5.1.3)
+- [tailwindlabs/tailwindcss](https://github.com/tailwindlabs/tailwindcss) (v3.4.10)
+- [postcss/postcss](https://github.com/postcss/postcss) (v8.4.45)
+- [postcss/autoprefixer](https://github.com/postcss/autoprefixer) (v10.4.20)
 
 ## License
 

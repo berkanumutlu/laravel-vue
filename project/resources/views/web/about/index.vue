@@ -3,8 +3,9 @@
 </script>
 
 <template>
-    <h1>Title</h1>
-    <p>Description</p>
+    <div>
+        <h1>About Us Page</h1>
+    </div>
 </template>
 
 <style scoped>
