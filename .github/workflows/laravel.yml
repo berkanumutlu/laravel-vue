@@ -42,6 +42,7 @@ jobs:
           mkdir -p database
           touch database/database.sql
       - name: Generate APP_KEY for testing environment
+        working-directory: project
         run: php artisan key:generate --env=testing
       - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
         working-directory: project
