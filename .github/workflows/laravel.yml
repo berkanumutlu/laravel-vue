@@ -36,4 +36,4 @@ jobs:
           mkdir -p database
           touch database/database.sql
       - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
-        run: php artisan test
+        run: php artisan test --env=testing
