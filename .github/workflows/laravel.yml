@@ -26,6 +26,9 @@ jobs:
       - name: Install Dependencies with npm
         working-directory: project
         run: npm install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      - name: Build assets with npm (Vite)
+        working-directory: project
+        run: npm run build
       - name: Generate key if not exists
         run: |
           if ! grep -q "APP_KEY=" project/.env; then
@@ -38,6 +41,8 @@ jobs:
         run: |
           mkdir -p database
           touch database/database.sql
+      - name: Generate APP_KEY for testing environment
+        run: php artisan key:generate --env=testing
       - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
         working-directory: project
         run: php artisan test --env=testing
