@@ -18,6 +18,12 @@ export default {
             loginUser: {
                 email: null,
                 password: null
+            },
+            color: false,
+            size: false,
+            myStyle: {
+                color: 'red',
+                fontSize: '24px'
             }
         }
     },
@@ -29,6 +35,9 @@ export default {
             if (this.age > 0) {
                 this.age--
             }
+        },
+        login() {
+
         }
     },
     beforeCreate() {
@@ -47,13 +56,11 @@ export default {
 </script>
 
 <template>
-    <div class="container mx-auto my-auto space-y-4">
+    <div class="container mx-auto my-12 space-y-4">
         <div>
+            <h6 class="font-bold">Temel Vue.js Yapısı Döngüler,Koşullar,Methods,Hooks</h6>
             Hello {{ text }}, {{ numberVariable }}<br>
-            Hello <span v-html="textHTML"></span>
-        </div>
-        <br>
-        <div>
+            Hello <span v-html="textHTML"></span><br>
             Hello {{ name }}, you are {{ age }} years old.
             You are <strong v-if="age<=12">Kid</strong>
             <strong v-else-if="age<=18">Teen</strong>
@@ -66,6 +73,7 @@ export default {
         </div>
         <br>
         <div class="space-y-8">
+            <h6 class="font-bold">Form Elementleri</h6>
             <ul>
                 <li :key="item" v-for="item in arrayVariable">{{ item }}</li>
             </ul>
@@ -93,7 +101,7 @@ export default {
         <div class="w-1/2 mx-auto">
             <!--<input type="number" :id="'email'" v-model.number="loginUser.email">
             <input type="text" :id="'text'" v-model.lazy="loginUser.email">-->
-            <form @submit.prevent="login" class="flex flex-col justify-center bg-white p-4">
+            <form @submit.prevent="login()" class="flex flex-col justify-center bg-white p-4">
                 <div class="space-y-8">
                     <div class="form-input-with-label">
                         <label for="email">Email</label>
@@ -111,6 +119,20 @@ export default {
                     <button type="submit" class="form-button">Login</button>
                 </div>
             </form>
+        </div>
+        <br>
+        <div>
+            <h6 class="font-bold">Class & Styles işlemleri</h6>
+            <p class="my-2" v-bind:class="{ 'text-red-600': color, 'text-2xl': size }">Lorem
+                Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
+                to make a type specimen book.</p>
+            <p v-bind:style="myStyle">Text2</p>
+            <p v-bind:style="{color:myStyle.color}">Text3</p>
+            <div class="my-4">
+                <button @click="color=!color" class="p-2 border rounded-lg">Change Color</button>
+                <button @click="size=!size" class="ms-2 p-2 border rounded-lg">Change Font Size</button>
+            </div>
         </div>
     </div>
 </template>

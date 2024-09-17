@@ -1,7 +1,7 @@
 import './bootstrap';
 import {createApp} from 'vue';
-import AppLayout from '@project/resources/views/layouts/app.vue';
 import {createRouter, createWebHistory} from 'vue-router';
+import AppLayout from '@project/resources/views/layouts/app.vue';
 import WebRoutes from '@project/resources/routes/web';
 import AdminRoutes from '@project/resources/routes/admin';
 import ApiRoutes from '@project/resources/routes/api';
