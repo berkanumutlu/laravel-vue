@@ -1,9 +1,10 @@
 <script>
 import Alert from '@project/resources/views/components/Alert.vue';
 import {CheckCircleIcon, ExclamationCircleIcon, XCircleIcon} from '@heroicons/vue/24/outline';
+import UserList from '@project/resources/views/components/UserList.vue';
 
 export default {
-    components: {Alert},
+    components: {Alert, UserList},
     data() {
         return {
             text: 'World',
@@ -268,13 +269,7 @@ export default {
                                 :data-disabled="errors.length > 0 || form.fullname === '' ? true : null">Add
                         </button>
                     </form>
-                    <div class="w-1/4 mx-auto my-4" v-if="users.length > 0">
-                        <ul>
-                            <li :key="index" v-for="(user, index) in users">{{ index + 1 + ') ' + user.fullname }}<small
-                                class="ml-2 cursor-pointer" @click="deleteUser(index)">Remove</small>
-                            </li>
-                        </ul>
-                    </div>
+                    <user-list @delete="deleteUser" :users="users"></user-list>
                 </div>
             </div>
         </div>

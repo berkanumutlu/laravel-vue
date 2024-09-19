@@ -19,6 +19,7 @@ watch(() => currentRoute.name, (routeName) => {
     }
 }, {immediate: true});
 </script>
+
 <template>
     <component :is="layout">
         <RouterView/>
